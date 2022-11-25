@@ -1,0 +1,50 @@
+.hMainPage{
+    display: flex;
+    justify-content: center;
+}
+.pContainer{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.subPContainer{
+    width: 30%;
+    height: 80%;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.btnPContainer{
+    width: 30%;
+    padding: 6px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+}
+.btnWarning{
+    background-color: orange;
+}
+.btnWarning:hover{
+    background-color: rgb(212, 140, 7);
+}
+.btnDanger{
+    background-color: red;
+}
+.btnDanger:hover{
+    background-color: rgb(221, 5, 5);
+}
+.btnSuccess{
+    background-color: rgb(2, 173, 2);
+}
+.btnSuccess:hover{
+    background-color: rgb(4, 148, 4);
+}
+
+.btnPContainer:hover{
+    cursor: pointer;
+}
