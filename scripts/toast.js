@@ -89,6 +89,9 @@ function ToastExists(){
 }
 
 function DropElement(element){
-    // element.remove();
-    document.body.removeChild(element) //.remove() does not work on internet explorer (surprise-surprise)
+    //element.remove();
+    element.style.animationName = "slideout";
+    element.addEventListener("animationend", function(){
+        document.body.removeChild(element) //.remove() does not work on internet explorer (surprise-surprise)
+    })
 }
