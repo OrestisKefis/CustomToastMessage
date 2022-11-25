@@ -3,6 +3,11 @@ let btnDanger = document.getElementById('btn-danger');
 let btnSuccess = document.getElementById('btn-success');
 let toastTimeout;
 
+const isInternetExplorer = navigator.userAgent.indexOf('MSIE') > -1 || navigator.userAgent.indexOf('Trident') > -1;
+if(isInternetExplorer){
+    InitializeToast("warning");
+}
+
 btnWarning.addEventListener('click', function(){
     InitializeToast("warning");
 })
@@ -42,7 +47,8 @@ function CreateToastMessage(state){
         backgroundColor = "#c05600";
         faIcon = "fa fa-warning";
         headerMsg = "Warning!";
-        msg = "Please be careful";
+        msg = "Internet Exlorer out of support. Page might not be displayed properly"
+        // msg = "Please be careful";
     }
     else if(state == "danger"){
         backgroundColor = "red";
@@ -75,8 +81,7 @@ function CreateToastMessage(state){
     toastTextWrapper.appendChild(toastMsgHeader);
     toastTextWrapper.appendChild(toastMsg);
     toastSignWrapper.appendChild(toastSign);
-
-    document.body.prepend(toastDiv);
+    document.body.appendChild(toastDiv);
 }
 
 function ToastExists(){
@@ -84,5 +89,6 @@ function ToastExists(){
 }
 
 function DropElement(element){
-    element.remove();
+    // element.remove();
+    document.body.removeChild(element) //.remove() does not work on internet explorer (surprise-surprise)
 }
